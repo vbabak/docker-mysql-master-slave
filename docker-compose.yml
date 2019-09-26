@@ -24,6 +24,8 @@ services:
     restart: "no"
     ports:
       - 5506:5506
+    depends_on:
+      - mysql_master
     volumes:
       - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./slave/data:/var/lib/mysql
