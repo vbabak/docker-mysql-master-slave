@@ -2,7 +2,7 @@
 port=3306
 
 [mysqld]
-server-id=1
+server-id=3
 port=3306
 socket=/var/run/mysqld/mysqld.sock
 key_buffer_size=16M
@@ -10,6 +10,7 @@ max_allowed_packet=128M
 pid-file=/var/run/mysqld/mysqld.pid
 datadir=/var/lib/mysql
 secure-file-priv=NULL
+relay-log=/var/run/mysqld/mysql-relay-bin.log
 log_bin=/var/run/mysqld/mysql-bin.log
 binlog_format=ROW
 binlog_do_db=mydb
