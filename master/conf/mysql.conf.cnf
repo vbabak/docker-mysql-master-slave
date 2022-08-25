@@ -1,9 +1,9 @@
 [mysqld]
 
-skip-host-cache
 skip-name-resolve
+default_authentication_plugin = mysql_native_password
 
 server-id = 1
-log_bin = /var/log/mysql/mysql-bin.log
+log_bin = 1
 binlog_format = ROW
 binlog_do_db = mydb
