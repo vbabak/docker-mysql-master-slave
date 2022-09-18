@@ -11,6 +11,7 @@ services:
     volumes:
       - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./master/data:/var/lib/mysql
+      - ./master/logs:/var/log/mysql
     networks:
       - overlay
 
@@ -27,6 +28,7 @@ services:
     volumes:
       - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./slave/data:/var/lib/mysql
+      - ./slave/logs:/var/log/mysql
     networks:
       - overlay
 

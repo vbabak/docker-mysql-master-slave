@@ -5,5 +5,5 @@ skip-name-resolve
 
 server-id=2
 relay-log = /var/lib/mysql/mysql-relay-bin.log
-log_bin = /var/lib/mysql/mysql-bin.log
+log_bin = /var/log/mysql/mysql-bin.log
 binlog_do_db = mydb
