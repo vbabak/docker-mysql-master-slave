@@ -1,9 +1,8 @@
 [mysqld]
 
-skip-host-cache
 skip-name-resolve
+default_authentication_plugin = mysql_native_password
 
-server-id=2
-relay-log = /var/log/mysql/mysql-relay-bin.log
-log_bin = /var/log/mysql/mysql-bin.log
+server-id = 2
+log_bin = 1
 binlog_do_db = mydb
