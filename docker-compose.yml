@@ -11,8 +11,15 @@ services:
     volumes:
       - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./master/data:/var/lib/mysql
+      - ./master/logs:/var/log/mysql
     networks:
       - overlay
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 20s
+      retries: 10
+      start_period: 30s
 
   mysql_slave:
     image: mysql:5.7
@@ -23,12 +30,20 @@ services:
     ports:
       - 5506:3306
     depends_on:
-      - mysql_master
+      mysql_master:
+        condition: service_healthy
     volumes:
       - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
       - ./slave/data:/var/lib/mysql
+      - ./slave/logs:/var/log/mysql
     networks:
       - overlay
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 30s
+      timeout: 20s
+      retries: 10
+      start_period: 30s
 
 networks:
   overlay:
