@@ -1,9 +1,0 @@
-parameters:
-    level: 3
-    paths:
-        - lib
-        - tests
-    phpVersion: 80106
-
-includes:
-    - vendor/phpstan/phpstan-phpunit/extension.neon
