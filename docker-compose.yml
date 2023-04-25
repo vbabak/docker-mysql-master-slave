@@ -30,6 +30,17 @@ services:
     networks:
       - overlay
 
+  app:
+    build: .
+    container_name: "app"
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./:/app
+    entrypoint: /app/bin/entrypoint.sh
+    networks:
+      - overlay
+
 networks:
   overlay:
 

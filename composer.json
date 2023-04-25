@@ -1,0 +1,38 @@
+{
+    "require": {
+        "doctrine/doctrine-bundle": "^1.10",
+        "doctrine/orm": "^2.6",
+        "symfony/dotenv": "^4.2",
+        "symfony/flex": "^1.2",
+        "symfony/framework-bundle": "^4.2",
+        "symfony/maker-bundle": "^1.11",
+        "symfony/monolog-bundle": "^3.8",
+        "symfony/web-server-bundle": "^4.2",
+        "symfony/yaml": "^4.2"
+    },
+    "autoload": {
+      "psr-4": {
+        "App\\": "src"
+      }
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true,
+        "platform": {
+            "php": "7.1.18"
+        }
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    }
+}

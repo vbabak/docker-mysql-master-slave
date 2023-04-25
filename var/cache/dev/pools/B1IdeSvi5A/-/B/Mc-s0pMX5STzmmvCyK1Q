@@ -1,0 +1,3 @@
+<?php //App%255CController%255CAppController%2523logConnectionStatus
+
+return [PHP_INT_MAX, []];
