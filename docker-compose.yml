@@ -10,7 +10,7 @@ services:
       - 4406:3306
     volumes:
       - ./master/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
-      - ./master/data:/var/lib/mysql
+      - ./master/data:/var/lib/mysql:rw
     networks:
       - overlay
 
@@ -26,7 +26,18 @@ services:
       - mysql_master
     volumes:
       - ./slave/conf/mysql.conf.cnf:/etc/mysql/conf.d/mysql.conf.cnf
-      - ./slave/data:/var/lib/mysql
+      - ./slave/data:/var/lib/mysql:rw
+    networks:
+      - overlay
+
+  app:
+    build: .
+    container_name: "app"
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./:/app
+    entrypoint: /app/bin/entrypoint.sh
     networks:
       - overlay
 
